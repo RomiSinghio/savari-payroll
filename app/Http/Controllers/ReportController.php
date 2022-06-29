@@ -22,7 +22,7 @@ class ReportController extends Controller
     private float $monday_total_wage = 0;
 
     public function Rate (Request $request) {
-        $this->monday_total_wage = $request->input('monday_hours') * $this->monday_rate;
+        $this->monday_total_wage = $request->input((float)'monday_hours') * $this->monday_rate;
     }
 
 
@@ -69,13 +69,7 @@ class ReportController extends Controller
 
    
 
-        $monday_wage = $request->monday_hours * $this->monday_rate;
-        $tuesday_wage = $request->tuesday_hours * $this->tuesday_rate;
-        $wednesday_wage = $request->wednesday_hours * $this->wednesday_rate;
-        $thursday_wage = $request->thursday_hours * $this->thursday_rate;
-        $friday_wage = $request->friday_hours * $this->friday_rate;
-        $saturday_wage = $request->saturday_hours * $this->saturday_rate;
-        $sunday_wage = $request->sunday_hours * $this->sunday_rate;
+        
         $total_hours = $request->input('monday_hours') + $request->input('tuesday_hours') + $request->input('wednesday_hours') + $request->input('thursday_hours') + $request->input('friday_hours') + $request->input('saturday_hours') + $request->input('sunday_hours');
 
 
