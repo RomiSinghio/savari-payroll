@@ -1,7 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Welcome from '@/Jetstream/Welcome.vue';
-import WeekTable from '@/Components/WeekTable.vue';
 </script>
 
 <template>
@@ -15,7 +14,7 @@ import WeekTable from '@/Components/WeekTable.vue';
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                    <WeekTable />
+                    
                 </div>
             </div>
         </div>
