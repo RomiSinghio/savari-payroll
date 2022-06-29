@@ -22,7 +22,7 @@ class ReportController extends Controller
     private float $monday_total_wage = 0;
 
     public function Rate (Request $request) {
-        $this->monday_total_wage = $request->input((float)'monday_hours') * $this->monday_rate;
+        $this->monday_total_wage = ((float)$request->input('monday_hours')) * $this->monday_rate; 
     }
 
 
