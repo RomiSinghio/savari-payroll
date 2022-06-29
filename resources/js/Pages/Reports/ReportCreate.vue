@@ -9,7 +9,6 @@ const props = defineProps({
 });
 
 
-
 const form = useForm({
   driver_id: 1,
   total_hours: null,
