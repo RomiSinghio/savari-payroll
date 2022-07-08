@@ -1306,13 +1306,13 @@ select {
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
-.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-divide-opacity));
-}
 .divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-divide-opacity));
+}
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-divide-opacity));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -2034,8 +2034,8 @@ select {
     grid-column: span 4 / span 4;
   }
 
-  .sm\:col-span-3 {
-    grid-column: span 3 / span 3;
+  .sm\:col-span-7 {
+    grid-column: span 7 / span 7;
   }
 
   .sm\:col-span-1 {
@@ -2044,6 +2044,10 @@ select {
 
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .sm\:col-span-3 {
+    grid-column: span 3 / span 3;
   }
 
   .sm\:mx-0 {

@@ -1,45 +1,21 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Welcome from "@/Jetstream/Welcome.vue";
-import { Link , useForm } from "@inertiajs/inertia-vue3";
+import { Link, useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
-
 
 const props = defineProps({
   report: Object,
 });
 
-
-
 const form = useForm({
   monday_hours: props.report.monday_hours,
-  tuesday_hours: props.report.tuesday_hours,
-  wednesday_hours: props.report.wednesday_hours,
-  thursday_hours: props.report.thursday_hours,
-  friday_hours: props.report.friday_hours,
-  saturday_hours: props.report.saturday_hours,
-  sunday_hours: props.report.sunday_hours,
-  food_allowance: props.report.food_allowance,
-  fuel_allowance: props.report.fuel_allowance,
-  net_pay: props.report.net_pay,
-  actual_pay: props.report.actual_pay,
 });
 
 function updateReport() {
   Inertia.post(`/report/${props.report.id}`, {
     _method: "put",
     monday_hours: form.monday_hours,
-    tuesday_hours: form.tuesday_hours,
-    wednesday_hours: form.wednesday_hours,
-    thursday_hours: form.thursday_hours,
-    friday_hours: form.friday_hours,
-    saturday_hours: form.saturday_hours,
-    sunday_hours: form.sunday_hours,
-    food_allowance: form.food_allowance,
-    fuel_allowance: form.fuel_allowance,
-    net_pay: form.net_pay,
-    actual_pay: form.actual_pay,
-
   });
 }
 </script>
@@ -48,7 +24,7 @@ function updateReport() {
   <AppLayout title="Reports">
     <form
       @submit.prevent="updateReport"
-      class="py-12 mx-auto space-y-8 divide-y divide-gray-200 max-w-7xl sm:px-6 lg:px-8"
+      class="py-12 mx-auto space-y-8 divide-y divide-gray-200  max-w-7xl sm:px-6 lg:px-8"
     >
       <div class="space-y-8 divide-y divide-gray-200">
         <div class="pt-8">
@@ -70,7 +46,7 @@ function updateReport() {
                   id="country"
                   name="country"
                   autocomplete="country-name"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                   <option>Week 1</option>
                   <option>Week 2</option>
@@ -91,7 +67,7 @@ function updateReport() {
                   id="country"
                   name="country"
                   autocomplete="country-name"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                   <option>John Corti</option>
                   <option>Shuja Zaheer</option>
@@ -110,7 +86,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   v-model="form.monday_hours"
                 />
               </div>
@@ -129,8 +105,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.tuesday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -145,8 +120,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.wednesday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -164,8 +138,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.thursday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -180,8 +153,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.friday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -199,8 +171,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.saturday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -215,8 +186,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.sunday_hours"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -234,8 +204,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.monday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -250,8 +219,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.tuesday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -269,8 +237,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.wednesday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -285,8 +252,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.thursday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -304,8 +270,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.friday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -320,7 +285,7 @@ function updateReport() {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -338,8 +303,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.sunday_cleaning"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -357,8 +321,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.food_allowance"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -376,8 +339,7 @@ function updateReport() {
                   name="region"
                   id="region"
                   autocomplete="address-level1"
-                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  v-model="form.fuel_allowance"
+                  class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -394,7 +356,7 @@ function updateReport() {
                     rows="4"
                     name="comment"
                     id="comment"
-                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -407,7 +369,7 @@ function updateReport() {
         <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
           <div class="sm:col-span-2">
             <label for="region" class="block text-sm font-medium text-gray-700">
-                Total Pay 
+              Total Pay
             </label>
             <div class="mt-1">
               <input
@@ -415,7 +377,7 @@ function updateReport() {
                 name="region"
                 id="region"
                 autocomplete="address-level1"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
           </div>
@@ -430,8 +392,7 @@ function updateReport() {
                 name="region"
                 id="region"
                 autocomplete="address-level1"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                v-model="form.net_pay"
+                class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
           </div>
@@ -446,8 +407,7 @@ function updateReport() {
                 name="region"
                 id="region"
                 autocomplete="address-level1"
-                class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                v-model="form.actual_pay"
+                class="block w-full border-gray-300 rounded-md shadow-sm  focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
           </div>
@@ -458,13 +418,13 @@ function updateReport() {
         <div class="flex justify-end">
           <button
             type="button"
-            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm  hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Cancel
           </button>
           <button
             type="submit"
-            class="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Save
           </button>

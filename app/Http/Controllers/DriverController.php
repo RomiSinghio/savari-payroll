@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\Driver;
 use App\Http\Requests\StoreDriverRequest;
 use App\Http\Requests\UpdateDriverRequest;
-use App\Models\Driver;
 
 class DriverController extends Controller
 {
@@ -15,7 +16,14 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Drivers/DriversIndex', [
+            'drivers' => Driver::all()->map(function ($driver){
+                return [
+                    'id' => $driver->id,
+                    'name' => $driver->name ?? 'no name',
+                ];
+            })
+        ]);
     }
 
     /**

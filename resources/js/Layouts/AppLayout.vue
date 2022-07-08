@@ -55,12 +55,6 @@ const logout = () => {
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :href="route('weeks')" :active="route().current('weeks')">
-                                    Weeks
-                                </JetNavLink>
-                            </div>
-
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('drivers')" :active="route().current('drivers')">
                                     Drivers
                                 </JetNavLink>

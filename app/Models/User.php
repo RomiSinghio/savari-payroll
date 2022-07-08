@@ -59,10 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function weeks()
-    {
-        return $this->hasMany(Week::class);
-    }
+   
 
     
 }

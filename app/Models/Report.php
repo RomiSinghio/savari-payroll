@@ -11,13 +11,9 @@ class Report extends Model
 
     protected $guarded = [];
 
-    public function drivers()
+    public function driver()
     {
-        return $this->hasMany(Driver::class);
+        return $this->belongsTo(Driver::class);
     }
 
-    public function weeks()
-    {
-        return $this->belongsTo(Week::class);
-    }
 }

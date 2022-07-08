@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\WeekController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -39,11 +40,8 @@ Route::middleware([
     Route::get('/report/{report}/edit', [ReportController::class, 'edit'])->name('edit-report');
     Route::put('/report/{report}', [ReportController::class, 'update'])->name('update-report');
 
+    Route::get('/drivers', [DriverController::class, 'index'])->name('drivers');
 
-
-    Route::get('/drivers', function () {
-        return Inertia::render('Drivers');
-    })->name('drivers');
 
     Route::get('/users', function () {
         return Inertia::render('Users');

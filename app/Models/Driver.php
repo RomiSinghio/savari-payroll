@@ -13,8 +13,4 @@ class Driver extends Model
     
     protected $guarded = [];
     
-    public function reports()
-    {
-        return $this->belongsTo(Report::class);
-    }
 }

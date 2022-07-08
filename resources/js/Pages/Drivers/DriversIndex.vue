@@ -1,17 +1,17 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import Welcome from "@/Jetstream/Welcome.vue";
-import { Link } from "@inertiajs/inertia-vue3";
 
 const props = defineProps({
-  reports: Array,
+  drivers: Array,
 });
+
 </script>
 
 <template>
-  <AppLayout title="Weeks">
+  <AppLayout title="Drivers">
     <template #header>
-      <h2 class="text-xl font-semibold leading-tight text-gray-800">Reports</h2>
+      <h2 class="text-xl font-semibold leading-tight text-gray-800">Drivers</h2>
     </template>
 
     <div class="py-12">
@@ -20,19 +20,19 @@ const props = defineProps({
           <div class="p-12 px-4 sm:px-6 lg:px-8">
             <div class="sm:flex sm:items-center">
               <div class="sm:flex-auto">
-                <h1 class="text-xl font-semibold text-gray-900">Reports</h1>
+                <h1 class="text-xl font-semibold text-gray-900">Drivers</h1>
                 <p class="mt-2 text-sm text-gray-700">
-                  A list of all the reports.
+                  A list of all the drivers.
                 </p>
               </div>
               <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                 <Link
-                as="button"
-                href="/report/create"
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
-              >
-               Create  report
-              </Link>
+                  as="button"
+                  href="/driver/create"
+                  class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                >
+                  Create Driver
+                </Link>
               </div>
             </div>
             <div class="flex flex-col mt-8">
@@ -50,25 +50,13 @@ const props = defineProps({
                             scope="col"
                             class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase sm:pl-6"
                           >
-                            Driver 
+                            ID
                           </th>
                           <th
                             scope="col"
                             class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase "
                           >
-                            Total Hours
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase "
-                          >
-                            Net Pay
-                          </th>
-                          <th
-                            scope="col"
-                            class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase "
-                          >
-                            Actual Pay 
+                            Name
                           </th>
 
                           <th
@@ -80,37 +68,26 @@ const props = defineProps({
                         </tr>
                       </thead>
                       <tbody class="bg-white divide-y divide-gray-200">
-                        <tr v-for="report in reports" :key="report.id">
+                        <tr v-for="driver in drivers" :key="driver.id">
                           <td
                             class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
                           >
-                             {{ report.name  }}
+                            {{ driver.id }}
                           </td>
                           <td
                             class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
                           >
-                            {{report.monday_hours + report.tuesday_hours + report.wednesday_hours + report.thursday_hours + report.friday_hours + report.saturday_hours + report.sunday_hours  }} Hours
-                          </td>
-                          <td
-                            class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
-                          >
-                            £{{ report.monday_hours * report.daily_rate.monday + report.tuesday_hours * report.daily_rate.tuesday + report.wednesday_hours * report.daily_rate.wednesday + report.thursday_hours * report.daily_rate.thursday + report.friday_hours * report.daily_rate.friday + report.saturday_hours * report.daily_rate.saturday + report.sunday_hours * report.daily_rate.sunday + report.monday_fixed + report.tuesday_fixed + report.wednesday_fixed + report.thursday_fixed + report.friday_fixed + report.saturday_fixed + report.sunday_fixed }}
-                          </td>
-                          <td
-                            class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
-                          >
-                            £
+                            {{ driver.name }}
                           </td>
 
                           <td
                             class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6"
                           >
-                             <Link
-                            :href="`/report/${report.id}/edit`"
-                            class="mr-4 text-indigo-600 hover:text-indigo-900"
-                            >Edit
-                          </Link>
-                            
+                            <Link
+                              :href="`/driver/${driver.id}/edit`"
+                              class="mr-4 text-indigo-600 hover:text-indigo-900"
+                              >Edit
+                            </Link>
                           </td>
                         </tr>
                       </tbody>
