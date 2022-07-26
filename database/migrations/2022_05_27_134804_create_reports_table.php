@@ -40,6 +40,7 @@ return new class extends Migration
             $table->float('expenses')->nullable();
             $table->mediumText('notes')->nullable();
             $table->float('actual_pay')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

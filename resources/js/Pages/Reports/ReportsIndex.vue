@@ -70,7 +70,13 @@ const props = defineProps({
                           >
                             Actual Pay 
                           </th>
-
+                          
+                          <th
+                            scope="col"
+                            class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase "
+                          >
+                            Status
+                          </th>
                           <th
                             scope="col"
                             class="relative py-3 pl-3 pr-4 sm:pr-6"
@@ -89,17 +95,24 @@ const props = defineProps({
                           <td
                             class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
                           >
-                            {{report.monday_hours + report.tuesday_hours + report.wednesday_hours + report.thursday_hours + report.friday_hours + report.saturday_hours + report.sunday_hours  }} Hours
+                            {{ report.total_hours }} Hours
                           </td>
                           <td
                             class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
                           >
-                            £{{ report.monday_hours * report.daily_rate.monday + report.tuesday_hours * report.daily_rate.tuesday + report.wednesday_hours * report.daily_rate.wednesday + report.thursday_hours * report.daily_rate.thursday + report.friday_hours * report.daily_rate.friday + report.saturday_hours * report.daily_rate.saturday + report.sunday_hours * report.daily_rate.sunday + report.monday_fixed + report.tuesday_fixed + report.wednesday_fixed + report.thursday_fixed + report.friday_fixed + report.saturday_fixed + report.sunday_fixed }}
+                            £{{ report.net_pay }}
                           </td>
                           <td
                             class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap"
                           >
-                            £
+                            £{{ report.actual_pay }}
+                          </td>
+
+                          <td
+                            class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap "
+
+                          >
+                            {{ report.status }}
                           </td>
 
                           <td

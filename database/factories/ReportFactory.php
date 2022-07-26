@@ -60,6 +60,7 @@ class ReportFactory extends Factory
             'actual_pay' => $this->faker->numberBetween($min = 0, $max = 400),
 
             'notes' => $this->faker->paragraph,
+            'status' => $this->faker->numberBetween($min = 1, $max = 5),
         ];
     }
 }

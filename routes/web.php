@@ -1,6 +1,8 @@
 <?php
 
 use Inertia\Inertia;
+use App\Mail\EmployeeCheckMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\WeekController;
@@ -31,7 +33,7 @@ Route::middleware([
 
 
 
-    Route::get('/weeks', [WeekController::class, 'index'])->name('weeks');
+
 
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports');
@@ -40,8 +42,14 @@ Route::middleware([
     Route::get('/report/{report}/edit', [ReportController::class, 'edit'])->name('edit-report');
     Route::put('/report/{report}', [ReportController::class, 'update'])->name('update-report');
 
+
+    Route::get('/weeks', [WeekController::class, 'index'])->name('weeks');
     Route::get('/drivers', [DriverController::class, 'index'])->name('drivers');
 
+    // Route for email
+    Route::get('/email', function () {
+        return new EmployeeCheckMail();
+    });
 
     Route::get('/users', function () {
         return Inertia::render('Users');

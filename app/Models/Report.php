@@ -16,4 +16,19 @@ class Report extends Model
         return $this->belongsTo(Driver::class);
     }
 
+
+    protected $status = array(
+        '1' => 'New',
+        '2' => 'Needs Approval',
+        '3' => 'Employee Check',
+        '4' => 'Ready for Payroll',
+        '5' => 'Paid',
+    );
+
+    protected $casts = [
+        'status' => 'integer',
+    ];
+
+
+
 }
